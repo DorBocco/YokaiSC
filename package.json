@@ -1,0 +1,22 @@
+{
+  "name": "yokai_contratcs",
+  "version": "1.0.0",
+  "description": "Smart-contracts in Solidy for the Ethereum implementation of Yokai's NFTs.",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DorBocco/YokaiSC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DorBocco/YokaiSC/issues"
+  },
+  "homepage": "https://github.com/DorBocco/YokaiSC#readme"
+}

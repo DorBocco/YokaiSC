@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
+pragma solidity 0.8.15;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 contract Yokai is ERC721Enumerable, Ownable, ERC2981 {
     using Counters for Counters.Counter;
     using Strings for uint256;
-    uint256 MAX_TO_MINT = 9000;
+    uint256 public constant MAX_TO_MINT = 9000;
     uint256 public MINT_PER_PERS = 3;
     uint256 public tokenPrice;
     bytes32 public merkleRoot = 0x1430dc8121327593cc6a9dda199e0ddb7e3f053323e3142cdf7a7d1a71feab82;
@@ -105,7 +105,7 @@ contract Yokai is ERC721Enumerable, Ownable, ERC2981 {
     function whitelistMint(bytes32[] calldata _merkleProof, uint256 num) public payable {
         require(!public_sale, "Not private sale");
         require(msg.value >= tokenPrice * num, "Insufficient funds");
-        require(totalSupply() < MAX_TO_MINT, "Exceeds max supply");
+        require(totalSupply() + num < MAX_TO_MINT, "Exceeds max supply");
         require(msg.sender == tx.origin, "Bots not allowed");
         require(balanceOf(msg.sender) + num <= MINT_PER_PERS, "Can't min't that much NFTs");
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
