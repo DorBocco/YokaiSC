@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/DorBocco/YokaiSC/issues"
   },
-  "homepage": "https://github.com/DorBocco/YokaiSC#readme"
+  "homepage": "https://github.com/DorBocco/YokaiSC#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.10",
+    "dotenv": "^16.0.1",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.32",
+    "truffle": "^5.5.20",
+    "truffle-assertions": "^0.9.2"
+  }
 }
